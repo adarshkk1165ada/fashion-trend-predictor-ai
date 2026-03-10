@@ -1,0 +1,36 @@
+
+NLP Trend Summary
+-----------------
+
+Total posts analyzed : 2000
+Average sentiment score : -0.025
+Average engagement score: 0.363
+
+Sentiment Score Interpretation
+-1.0 – -0.3 : Negative discussion
+-0.3 – 0.3  : Neutral discussion
+0.3 – 1.0   : Positive discussion
+
+Engagement Score Interpretation
+0.0 – 0.2  : Low engagement
+0.2 – 0.5  : Moderate engagement
+0.5 – 1.0  : High engagement
+
+Top trending keywords
+feels: 383
+better: 280
+comfortable: 274
+looks: 267
+quality: 267
+trending: 266
+fabric: 265
+streetwear: 253
+saree: 242
+hoodie: 240
+
+Top discussion topics
+Topic 4 (quality, looks, trending, stunning, great): 670 posts
+Topic 3 (better, comfortable, real, online, looked): 406 posts
+Topic 2 (fabric, makes, super, comfortable, easily): 375 posts
+Topic 1 (feels, outdated, design, perfect, obsessed): 276 posts
+Topic 0 (soon, popular, styles, seeing, media): 273 posts

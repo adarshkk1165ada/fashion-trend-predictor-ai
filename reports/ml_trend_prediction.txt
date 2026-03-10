@@ -1,0 +1,9 @@
+
+Fashion Trend Forecast (Next Week)
+----------------------------------
+
+Jeans        → Declining
+Kurti        → Stable
+Saree        → Stable
+Streetwear   → Stable
+TShirt       → Stable
