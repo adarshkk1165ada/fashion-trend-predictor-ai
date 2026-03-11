@@ -11,10 +11,7 @@ __pycache__/
 # Environment variables
 .env
 
-# Large datasets
-data/
-data/raw_data/
-data/training_images/
+
 
 # Trained models
 models/
