@@ -1,0 +1,17 @@
+streamlit
+numpy
+pandas
+scikit-learn
+torch
+torchvision
+timm
+opencv-python-headless
+pillow
+transformers
+nltk
+joblib
+matplotlib
+tqdm
+requests
+altair
+watchdog
