@@ -165,16 +165,46 @@ if st.sidebar.button("Run Full Pipeline"):
 
     progress = st.progress(0)
 
-    st.toast("Running AI Fashion Trend Pipeline...")
+    st.subheader("Pipeline Status")
 
+    cv_box = st.empty()
+    nlp_box = st.empty()
+    ml_box = st.empty()
+
+    cv_close = st.empty()
+    nlp_close = st.empty()
+    ml_close = st.empty()
+
+    # Start CV stage
+    cv_box.info("Computer Vision Analysis running...")
+    progress.progress(20)
+
+    # Run full pipeline
     run_pipeline()
 
+    # Update messages
+    cv_box.success("Computer Vision Analysis completed")
+    progress.progress(50)
+
+    nlp_box.success("NLP Sentiment Analysis completed")
+    progress.progress(80)
+
+    ml_box.success("ML Trend Forecast completed")
     progress.progress(100)
 
-    st.toast("Pipeline completed successfully!")
+    st.success("Pipeline completed successfully!")
 
-    # clear cache to reload new results
     load_report.clear()
+
+    # close buttons
+    if cv_close.button("❌ Remove CV message"):
+        cv_box.empty()
+
+    if nlp_close.button("❌ Remove NLP message"):
+        nlp_box.empty()
+
+    if ml_close.button("❌ Remove ML message"):
+        ml_box.empty()
 
 
 st.sidebar.markdown("---")
