@@ -2,7 +2,11 @@ import re
 import nltk
 from nltk.corpus import stopwords
 
-nltk.download("stopwords")
+# Download stopwords only if not already installed
+try:
+    nltk.data.find("corpora/stopwords")
+except LookupError:
+    nltk.download("stopwords")
 
 stop_words = set(stopwords.words("english"))
 
