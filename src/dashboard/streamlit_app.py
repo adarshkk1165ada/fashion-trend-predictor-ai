@@ -9,6 +9,17 @@ import sys
 
 
 # --------------------------------
+# Page configuration
+# --------------------------------
+
+st.set_page_config(
+    page_title="Fashion Trend Predictor",
+    page_icon="👗",
+    layout="wide"
+)
+
+
+# --------------------------------
 # Background setup
 # --------------------------------
 
@@ -81,16 +92,6 @@ def set_background():
     )
 
 
-# --------------------------------
-# Page configuration
-# --------------------------------
-
-st.set_page_config(
-    page_title="Fashion Trend Predictor",
-    page_icon="👗",
-    layout="wide"
-)
-
 set_background()
 
 
@@ -130,9 +131,10 @@ st.markdown('<div class="scroll-hint">⬇ Scroll down for FAQ and Feedback</div>
 
 
 # --------------------------------
-# Helper function
+# Cached helper function
 # --------------------------------
 
+@st.cache_data
 def load_report(path):
 
     if os.path.exists(path):
@@ -140,6 +142,17 @@ def load_report(path):
             return f.read()
     else:
         return "Report not found. Please run the pipeline."
+
+
+# --------------------------------
+# Pipeline execution
+# --------------------------------
+
+def run_pipeline():
+
+    python_exec = sys.executable
+
+    subprocess.run([python_exec, "-m", "src.run_pipeline"])
 
 
 # --------------------------------
@@ -152,21 +165,17 @@ if st.sidebar.button("Run Full Pipeline"):
 
     progress = st.progress(0)
 
-    python_exec = sys.executable
+    st.toast("Running AI Fashion Trend Pipeline...")
 
-    st.toast("Running Computer Vision analysis...")
-    subprocess.run([python_exec, "-m", "src.vision.visual_trend_analyzer"])
-    progress.progress(33)
+    run_pipeline()
 
-    st.toast("Running NLP trend analysis...")
-    subprocess.run([python_exec, "-m", "src.nlp.nlp_pipeline"])
-    progress.progress(66)
-
-    st.toast("Running ML trend prediction...")
-    subprocess.run([python_exec, "-m", "src.models.ml_trend_predictor"])
     progress.progress(100)
 
     st.toast("Pipeline completed successfully!")
+
+    # clear cache to reload new results
+    load_report.clear()
+
 
 st.sidebar.markdown("---")
 
